@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    <title>Lego Collection</title>
+</head>
+<body tabindex="-1">
+    <!--Responsive Navbar code-->
+    <div class="navbar bg-base-100">
+      <div class="flex-1">
+        <a class="btn btn-ghost normal-case text-xl" href="/">Lego Collection</a>
+      </div>
+  
+      <div class="dropdown">
+        <label tabindex="0" class="btn btn-ghost sm:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+          <li><a href="/about">About</a></li>
+          <li>
+            <details>
+              <summary>
+                Theme
+              </summary>
+              <ul class="p-2 bg-base-100">
+                <li><a href="/lego/sets?theme=technic">Technic</a></li>
+                <li><a href="/lego/sets?theme=classic town">Classic Town</a></li>
+                <li><a href="/lego/sets?theme=supplemental">Supplemental</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="navbar-center hidden sm:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a href="/about">About</a></li>
+          <li>
+            <details>
+              <summary>Theme</summary>
+              <ul class="p-2 bg-base-100 right-0">
+                <li><a href="/lego/sets?theme=technic">Technic</a></li>
+                <li><a href="/lego/sets?theme=classic town">Classic Town</a></li>
+                <li><a href="/lego/sets?theme=supplemental">Supplemental</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--Responsive Navbar code-->
+
+    <!--Container-->
+    <div class="container mx-auto">
+
+      <!--Test inviting users to explore the Lego Collection-->
+      <div class="hero bg-base-300 rounded-lg p-10" style="background-image: url(https://t4.ftcdn.net/jpg/02/93/96/11/360_F_293961190_nctoQUfh13LmfWaHK0nTeUTbAQrLVBk9.jpg);">
+        <div class="hero-overlay bg-opacity-60"></div>
+          <div class="hero-content text-center text-neutral-content">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold">Welcome</h1>
+              <p class="mb-5">Come and Explore Our funny Lego. Click the below button to start your fascinating journey through the colorful realm of LEGO!!!</p>
+              <a href="/lego/sets" class="btn btn-primary" >Get Started</a>
+            </div>
+        </div>
+      </div>
+      <!--Test inviting users to explore the Lego Collection-->
+
+      <br>
+
+      <!--Responsive grid system (3 columns)-->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        <!--Column 1 (card 1)-->
+        <div>
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img class="w-full" src="https://cdn.rebrickable.com/media/sets/010-3.jpg" alt="Lego set">
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Basic Building Set</h2>
+              <p>This set is the 1968-1972 version of the 1965-1968 released 010 set in cardboard.</p>
+              <div class="card-actions justify-end">
+                <a href="/lego/sets/010-3" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Column 1 (card 1)-->
+
+        <!--Column 2 (card 2)-->
+        <div class="card bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://cdn.rebrickable.com/media/sets/005-2.jpg" alt="Lego set" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title">Discovery Set</h2>
+            <p>The 005 Discovery Set is one of the LEGO Samsonite sets, released in 1967.</p>
+            <div class="card-actions justify-end">
+              <a href="/lego/sets/005-2" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <!--Column 2 (card 2)-->
+
+        <!--Column 3 (card 3)-->
+        <div>
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img class="w-full" src="https://cdn.rebrickable.com/media/sets/03093-1.jpg" alt="Lego Set">
+            </figure>
+            <div class="card-body shadow-xl">
+              <h2 class="card-title">The Race to Build It Board Game</h2>
+              <p>Classic game - released in 1999</p>
+              <div class="card-actions justify-end">
+                <a href="/lego/sets/03093-1" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Column 3 (card 3)-->
+
+      </div>
+      <!--Responsive grid system (3 columns)-->
+
+    </div>
+    <!--Container-->
+    
+</body>
+</html>
