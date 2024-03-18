@@ -7,52 +7,9 @@
     <title>Lego Collection</title>
 </head>
 <body tabindex="-1">
-    <!--Responsive Navbar code-->
-    <div class="navbar bg-base-100">
-      <div class="flex-1">
-        <a class="btn btn-ghost normal-case text-xl" href="/">Lego Collection</a>
-      </div>
-  
-      <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost sm:hidden">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-          </svg>
-        </label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content right-0 mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-          <li><a href="/about">About</a></li>
-          <li>
-            <details>
-              <summary>
-                Theme
-              </summary>
-              <ul class="p-2 bg-base-100">
-                <li><a href="/lego/sets?theme=technic">Technic</a></li>
-                <li><a href="/lego/sets?theme=classic town">Classic Town</a></li>
-                <li><a href="/lego/sets?theme=supplemental">Supplemental</a></li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </div>
-  
-      <div class="navbar-center hidden sm:flex">
-        <ul class="menu menu-horizontal px-1">
-          <li><a href="/about">About</a></li>
-          <li>
-            <details>
-              <summary>Theme</summary>
-              <ul class="p-2 bg-base-100 right-0">
-                <li><a href="/lego/sets?theme=technic">Technic</a></li>
-                <li><a href="/lego/sets?theme=classic town">Classic Town</a></li>
-                <li><a href="/lego/sets?theme=supplemental">Supplemental</a></li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </div>
-    </div>
-    <!--Responsive Navbar code-->
+    <!--Navbar-->
+    <%- include('partials/navbar', {page: '/home'}) %>
+    <!--Navbar-->
 
     <!--Container-->
     <div class="container mx-auto">
@@ -93,15 +50,17 @@
         <!--Column 1 (card 1)-->
 
         <!--Column 2 (card 2)-->
-        <div class="card bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full" src="https://cdn.rebrickable.com/media/sets/005-2.jpg" alt="Lego set" />
-          </figure>
-          <div class="card-body">
-            <h2 class="card-title">Discovery Set</h2>
-            <p>The 005 Discovery Set is one of the LEGO Samsonite sets, released in 1967.</p>
-            <div class="card-actions justify-end">
-              <a href="/lego/sets/005-2" class="btn btn-primary">View</a>
+        <div>
+          <div class="card bg-base-100 shadow-xl">
+            <figure>
+              <img class="w-full" src="https://cdn.rebrickable.com/media/sets/005-2.jpg" alt="Lego set" />
+            </figure>
+            <div class="card-body">
+              <h2 class="card-title">Discovery Set</h2>
+             <p>The 005 Discovery Set is one of the LEGO Samsonite sets, released in 1967.</p>
+              <div class="card-actions justify-end">
+                <a href="/lego/sets/005-2" class="btn btn-primary">View</a>
+              </div>
             </div>
           </div>
         </div>
