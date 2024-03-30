@@ -1,14 +1,14 @@
 /********************************************************************************
-*  WEB322 – Assignment 04
+*  WEB322 – Assignment 05
 * 
 *  I declare that this assignment is my own work in accordance with Seneca's
 *  Academic Integrity Policy:
 * 
 *  https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 * 
-*  Name: NGA TSZ SZE Student ID: 136132222 Date: 18/3/2024
+*  Name: NGA TSZ SZE Student ID: 136132222 Date: 29/3/2024
 *
-*  Published URL: ___________________________________________________________
+*  Published URL: https://tricky-jeans-cod.cyclic.app
 *
 ********************************************************************************/
 
@@ -23,6 +23,8 @@ const path = require('path');
 app.use(express.static('public')); 
 // Use the template engine
 app.set('view engine', 'ejs');
+// Middleware to parse URL-encoded data with extended syntax
+app.use(express.urlencoded({extended:true}));
 
 // Invoke the initialize function to make sure that the sets array has been successfully built
 legoData.initialize().then(() => {
@@ -89,6 +91,80 @@ app.get("/lego/sets/:setNum", (req,res) => {
     });  
 });
 
+// This route shows the "addSet" form view
+app.get("/lego/addSet", (req,res) => {
+    legoData.getAllThemes()
+    .then((themeData) => {
+        res.render("addSet", { themes: themeData });
+    })
+    .catch((err) => {
+        console.error(err);
+        res.render("500", {message: `I'm sorry, but we have encountered the following error: ${err}`});
+    });
+});
+
+// This route demonstrates the "addSet" functionality
+app.post("/lego/addSet", (req,res) => {
+    const setData = req.body;
+    legoData.addSet(setData)
+    .then(() => {
+        res.redirect("/lego/sets");
+    })
+    .catch((err) => {
+        console.error(err);
+        res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` });
+    });
+})
+
+// This route shows the "editSet" form
+app.get("/lego/editSet/:num", (req, res) => {
+
+    const setNum = req.params.num;
+
+    legoData.getSetByNum(setNum)
+    .then((setData) => {
+        legoData.getAllThemes()
+        .then((themeData) => {
+            res.render("editSet", { themes: themeData, set: setData });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(404).render("404", { message: err });
+        });
+    }).catch((err) => {
+        console.error(err);
+        res.status(404).render("404", { message: err });
+    });
+})
+
+// This route demonstrates the "editSet" functionality
+app.post("/lego/editSet", (req,res) => {
+    const set_num = req.body.set_num;
+    const setData = req.body;
+
+    legoData.editSet(set_num,setData)
+    .then(()=> {
+        res.redirect("/lego/sets");
+    })
+    .catch((err) => {
+        console.error(err);
+        res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` });
+    });
+})
+
+// This route demonstrates the "deleteSet" functionality
+app.get("/lego/deleteSet/:num", (req,res) => {
+    const setNum = req.params.num;
+
+    legoData.deleteSet(setNum)
+    .then(() => {
+        res.redirect("/lego/sets");
+    })
+    .catch((err) => {
+        console.error(err);
+        res.render("500", { message: `I'm sorry, but we have encountered the following error: ${err}` });
+    });
+})
 
 // Support for a custom "404 error".  
 app.all('*', (req, res) => {
